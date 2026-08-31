@@ -1,8 +1,8 @@
 /* Configuração geral do fundo da página */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0f172a; /* Azul escuro moderno */
-    color: #f8fafc;
+    background-color: #1a0505; /* Vermelho escuro moderno */
+    color: #fff1f2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,10 +13,10 @@ body {
 
 /* Caixa principal do gerador */
 .container {
-    background-color: #1e293b; /* Azul intermediário */
+    background-color: #3f0d0d; /* Vermelho vinho */
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     text-align: center;
     width: 320px;
 }
@@ -24,7 +24,7 @@ body {
 h1 {
     font-size: 24px;
     margin-bottom: 24px;
-    color: #38bdf8; /* Azul claro brilhante */
+    color: #f87171; /* Vermelho claro */
 }
 
 /* Campo onde a senha aparece */
@@ -33,26 +33,26 @@ input[type="text"] {
     padding: 12px;
     font-size: 18px;
     text-align: center;
-    border: 2px solid #334155;
+    border: 2px solid #7f1d1d;
     border-radius: 6px;
-    background-color: #0f172a;
-    color: #f8fafc;
+    background-color: #1f0505;
+    color: #fee2e2;
     outline: none;
     font-family: monospace; /* Fonte estilo código */
 }
 
 /* NOVO: Estilização do bloco de caixas de seleção */
 .opcoes-caracteres {
-    background-color: #0f172a; /* Fundo escuro sutil para as opções */
+    background-color: #1f0505; /* Fundo vermelho escuro */
     padding: 15px;
     border-radius: 8px;
-    border: 1px solid #334155;
+    border: 1px solid #7f1d1d;
 }
 
 /* NOVO: Estilização de cada linha de texto com checkbox */
 .opcoes-caracteres label {
     font-size: 14px;
-    color: #cbd5e1;
+    color: #fecaca;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -61,7 +61,7 @@ input[type="text"] {
 /* NOVO: Estilização do quadradinho do checkbox */
 .opcoes-caracteres input[type="checkbox"] {
     cursor: pointer;
-    accent-color: #38bdf8; /* Deixa o "check" com o mesmo azul claro do título */
+    accent-color: #ef4444; /* Vermelho vivo */
     width: 16px;
     height: 16px;
     margin-right: 8px;
@@ -80,11 +80,12 @@ input[type="text"] {
     font-size: 20px;
     font-weight: bold;
     min-width: 30px;
+    color: #fee2e2;
 }
 
 /* Botões de + e - */
 .btn-ajuste {
-    background-color: #334155;
+    background-color: #7f1d1d;
     color: white;
     border: none;
     width: 35px;
@@ -96,14 +97,14 @@ input[type="text"] {
 }
 
 .btn-ajuste:hover {
-    background-color: #475569;
+    background-color: #991b1b;
 }
 
 /* Botão principal de Gerar Senha */
 .btn-gerar {
     width: 100%;
     padding: 12px;
-    background-color: #0284c7; /* Azul destaque */
+    background-color: #dc2626; /* Vermelho destaque */
     color: white;
     border: none;
     border-radius: 6px;
@@ -114,5 +115,5 @@ input[type="text"] {
 }
 
 .btn-gerar:hover {
-    background-color: #0369a1;
+    background-color: #b91c1c;
 }
