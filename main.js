@@ -3,6 +3,10 @@ const campoSenha = document.querySelector("#campo-senha");
 // Localiza o número que mostra o tamanho da senha
 const numeroSenha = document.querySelector("#numero-senha");
 
+// NOVO: Localiza o campo de força da senha
+const nivelForca = document.querySelector(".nivel-forca");
+const porcentagemForca = document.querySelector(".porcentagem-forca");
+
 // NOVO: Localiza as caixas de seleção do HTML
 const chkMaiusculas = document.querySelector("#chk-maiusculas");
 const chkMinusculas = document.querySelector("#chk-minusculas");
@@ -20,6 +24,33 @@ let tamanhoSenha = 8;
 
 // Gera a primeira senha quando a página abrir
 geraSenha();
+
+// NOVO: Função que mede a força da senha
+function medirForcaSenha(senha) {
+  let forca = 0;
+
+  if (senha.length >= 8) forca += 25;
+  if (/[A-Z]/.test(senha)) forca += 25;
+  if (/[0-9]/.test(senha)) forca += 25;
+  if (/[^A-Za-z0-9]/.test(senha)) forca += 25;
+
+  // Atualiza a barra e porcentagem
+  if (nivelForca && porcentagemForca) {
+    nivelForca.style.width = forca + "%";
+    porcentagemForca.textContent = forca + "%";
+
+    if (forca <= 25) {
+      nivelForca.style.backgroundColor = "#ef4444";
+    } else if (forca <= 50) {
+      nivelForca.style.backgroundColor = "#facc15";
+    } else if (forca <= 75) {
+      nivelForca.style.backgroundColor = "#22c55e";
+    } else {
+      nivelForca.style.backgroundColor = "#16a34a";
+    }
+  }
+}
+
 
 // Função responsável por gerar a senha
 function geraSenha() {
@@ -42,14 +73,17 @@ function geraSenha() {
  
   // Repete o processo conforme o tamanho escolhido
   for (let i = 0; i < tamanhoSenha; i++) {
-    // Agora o caracteresPermitidos muda dinamicamente conforme os checkboxes
     let numeroAleatorio = Math.floor(Math.random() * caracteresPermitidos.length);
     senha = senha + caracteresPermitidos[numeroAleatorio];
   }
  
   // Exibe a senha na tela
   campoSenha.value = senha;
+
+  // NOVO: Mede a força da senha gerada
+  medirForcaSenha(senha);
 }
+
 
 // Diminui o tamanho da senha
 function diminuiTamanho() {
@@ -60,6 +94,7 @@ function diminuiTamanho() {
   geraSenha();
 }
 
+
 // Aumenta o tamanho da senha
 function aumentaTamanho() {
   if (tamanhoSenha < 20) {
@@ -67,4 +102,4 @@ function aumentaTamanho() {
   }
   numeroSenha.textContent = tamanhoSenha;
   geraSenha();
-}                                                                                                          
+}
